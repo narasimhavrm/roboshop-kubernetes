@@ -21,7 +21,7 @@ pipeline {
     stage('Helm Chart Deploy'){
       steps{
       sh 'aws eks update-kubeconfig --name ${ENV}-eks'
-      sh 'helm upgrade -i ${component} roboshop -f APP/helm.yml --set image.tag=${APP_VERSION}'
+      sh 'helm upgrade -i ${COMPONENT} roboshop -f APP/helm.yml --set image.tag=${APP_VERSION}'
        }
 
     }
